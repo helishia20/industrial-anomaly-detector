@@ -86,9 +86,8 @@ venv\Scripts\activate
 ```
  ### 3. Install Dependencies
 Install all required production and UI libraries listed in the manifest:
-
-Bash
 ```
+Bash
 pip install -r requirements.txt
 ```
 ### 4. Database Setup
@@ -100,12 +99,17 @@ CREATE DATABASE industrial_db;
 ```
 Note: Ensure your database user credentials and host configurations match in config/db_config.py.
 
-### 5. Run the Application
-Launch the real-time interactive dashboard via Streamlit:
+### 5.🏃‍♂️ How to Run
+The application runs in two parallel streams:
 
-Bash
+Start the Data Simulator & Analytics Pipeline (Terminal 1):
+```Bash
+python -m src.data_simulator
 ```
+Launch the Live Monitoring Dashboard (Terminal 2):
+```Bash
 streamlit run app.py
+
 ```
 
 ---
