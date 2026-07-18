@@ -2,14 +2,6 @@
 
 A production-ready, modular real-time anomaly detection pipeline designed for industrial IoT thermal sensors. This system simulates high-frequency thermal telemetry, processes streams using an ultra-efficient online algorithm, and persists anomalous events for industrial auditing.
 
-## 🚀 Key Features
-*   **Real-Time Data Streaming:** Simulates continuous industrial thermal sensor telemetry with dynamic noise and structural anomalies.
-*   **$O(1)$ Online Analytics:** Implements Welford's algorithm for real-time mean and variance tracking without statistical drift.
-*   **Persistent Auditing:** Dedicated MySQL schema logging for high-fidelity anomaly history.
-*   **Interactive Dashboard:** Streamlit UI featuring live Plotly telemetry graphs with dynamic threshold boundary visualization.
-
----
-
 ## 🏗️ System Architecture & Directory Structure
 The project follows a clean, modular software engineering architecture separating configuration, core algorithmic logic, and the presentation layer:
 
@@ -29,45 +21,12 @@ industrial-anomaly-detector/
 ├── .gitignore             # Environment and cache exclusions
 ├── requirements.txt       # Project dependency manifest
 └── README.md              # Project documentation
-
-## بفرما الهام جان، این یک نسخه فوق‌العاده حرفه‌ای، مهندسی و بازنویسی‌شده از `README.md` است. این فایل به زبان انگلیسی تنظیم شده تا کلاس کاری مخزن گیت‌هابت را کاملاً بالا ببرد و وقتی مهندسان **ایریسا** آن را می‌بینند، متوجه تسلط تو بر اصول معماری سیستم و ریاضیات الگوریتم‌ها بشوند.
-
-کل متن داخل کادر زیر را کپی کن و داخل فایل `README.md` پروژه‌ات قرار بده:
-
-```markdown
-# Industrial Thermal Telemetry Anomaly Detection System
-
-A production-ready, modular real-time anomaly detection pipeline designed for industrial IoT thermal sensors. This system simulates high-frequency thermal telemetry, processes streams using an ultra-efficient online algorithm, and persists anomalous events for industrial auditing.
-
-## 🚀 Key Features
-*   **Real-Time Data Streaming:** Simulates continuous industrial thermal sensor telemetry with dynamic noise and structural anomalies.
-*   **$O(1)$ Online Analytics:** Implements Welford's algorithm for real-time mean and variance tracking without statistical drift.
-*   **Persistent Auditing:** Dedicated MySQL schema logging for high-fidelity anomaly history.
-*   **Interactive Dashboard:** Streamlit UI featuring live Plotly telemetry graphs with dynamic threshold boundary visualization.
-
----
-
-## 🏗️ System Architecture & Directory Structure
-The project follows a clean, modular software engineering architecture separating configuration, core algorithmic logic, and the presentation layer:
-
-```text
-industrial-anomaly-detector/
-│
-├── config/
-│   ├── __init__.py
-│   └── db_config.py       # Database credentials & pooling configuration
-│
-├── src/
-│   ├── __init__.py
-│   ├── database.py        # MySQL logging & persistence layer
-│   └── algorithms.py      # Welford's online anomaly detection logic
-│
-├── app.py                 # Streamlit application entry point
-├── .gitignore             # Environment and cache exclusions
-├── requirements.txt       # Project dependency manifest
-└── README.md              # Project documentation
-
 ```
+## 🚀 Key Features
+*   **Real-Time Data Streaming:** Simulates continuous industrial thermal sensor telemetry with dynamic noise and structural anomalies.
+*   **$O(1)$ Online Analytics:** Implements Welford's algorithm for real-time mean and variance tracking without statistical drift.
+*   **Persistent Auditing:** Dedicated MySQL schema logging for high-fidelity anomaly history.
+*   **Interactive Dashboard:** Streamlit UI featuring live Plotly telemetry graphs with dynamic threshold boundary visualization.
 
 ---
 
@@ -103,57 +62,56 @@ $$\sigma_n^2 = \frac{M_{2,n}}{n - 1}$$
 ## 💻 Installation & Setup
 
 ### 1. Clone the Repository
-
+Open your terminal or Git Bash and run:
 ```bash
 git clone [https://github.com/helishia20/industrial-anomaly-detector.git](https://github.com/helishia20/industrial-anomaly-detector.git)
 cd industrial-anomaly-detector
-
 ```
-
 ### 2. Set Up the Virtual Environment
+Create and activate a isolated Python environment to manage dependencies:
 
-```bash
+# Create the virtual environment
+```
 python -m venv venv
-# Activate on Windows:
+```
+# Activate on Windows (Command Prompt):
+```
 venv\Scripts\activate
-
 ```
+ ### 3. Install Dependencies
+Install all required production and UI libraries listed in the manifest:
 
-### 3. Install Dependencies
-
-```bash
+Bash
+```
 pip install -r requirements.txt
-
 ```
-
 ### 4. Database Setup
+Ensure your local MySQL server is running. Open your database client (e.g., DataGrip) and execute the following command to initialize the project schema:
 
-Ensure your local MySQL server is running, then create the project schema:
-
-```sql
-CREATE DATABASE industrial_db;
-
-USE industrial_db;
-
-CREATE TABLE IF NOT EXISTS anomalies (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    temperature DOUBLE NOT NULL,
-    deviation DOUBLE NOT NULL
-);
-
+SQL:
 ```
-
-*Note: Remember to update your database credentials in `config/db_config.py`.*
+CREATE DATABASE industrial_db;
+```
+Note: Ensure your database user credentials and host configurations match in config/db_config.py.
 
 ### 5. Run the Application
+Launch the real-time interactive dashboard via Streamlit:
 
-```bash
+Bash
+```
 streamlit run app.py
-
 ```
 
-```
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+*   **Elham** - *Core Architecture & Development* - [helishia20](https://github.com/helishia20)
+
+---
+> 💡 *Developed for technical evaluation and demonstrating production-ready real-time anomaly detection pipelines.*
 
 ---
 
